@@ -35,4 +35,12 @@ public enum Words {
         }
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public ArrayListMultimap<POS, String> getDefinitions() {
+        return definitions;
+    }
+
 }
