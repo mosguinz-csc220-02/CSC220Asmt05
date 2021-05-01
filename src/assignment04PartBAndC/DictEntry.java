@@ -1,19 +1,13 @@
 package assignment04PartBAndC;
 
-import com.google.common.collect.ArrayListMultimap;
-
 public class DictEntry {
 
-    private final ArrayListMultimap<PartOfSpeech, String> entries = ArrayListMultimap.create();
+    private final PartOfSpeech pos;
+    private final String definition;
 
     DictEntry(PartOfSpeech pos, String definition) {
-        entries.put(pos, definition);
-    }
-
-    public ArrayListMultimap<PartOfSpeech, String> addDefinition(PartOfSpeech pos,
-            String definition) {
-        entries.put(pos, definition);
-        return entries;
+        this.pos = pos;
+        this.definition = definition;
     }
 
     enum PartOfSpeech {
@@ -21,4 +15,3 @@ public class DictEntry {
     }
 
 }
-
