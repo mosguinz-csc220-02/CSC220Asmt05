@@ -1,48 +1,38 @@
 package assignment04PartBAndC;
 
+import assignment04PartBAndC.DictEntry.POS;
 import com.google.common.collect.ArrayListMultimap;
 
-public enum DictEntry {
+public enum Words {
 
-    BOOK_N("book", "A written work published in printed or electronic form.", PartOfSpeech.NOUN),
-    BOOK_V("book", "To arrange for someone to have a seat on a plane.", PartOfSpeech.VERB),
-    BOOKABLE("bookable", "Can be ordered in advance.", PartOfSpeech.ADJECTIVE),
-    BOOKCASE("bookcase", "A piece of furniture with shelves.", PartOfSpeech.NOUN),
-    BOOKBINDER("bookbinder", "A person who fastens the pages of books.", PartOfSpeech.NOUN),
-    CSC220_A("CSC220", "Ready to create complex data structures.", PartOfSpeech.ADJECTIVE),
-    CSC220_N("CSC220", "Data Structures.", PartOfSpeech.NOUN),
-    CSC220_V("CSC220", "To create data structures.", PartOfSpeech.VERB);
+    BOOK("book",
+            new DictEntry(POS.NOUN, "A written work published in printed or electronic form."),
+            new DictEntry(POS.VERB, "To arrange for someone to have a seat on a plane.")
+    ),
+    BOOKABLE("bookable",
+            new DictEntry(POS.ADJECTIVE, "Can be ordered in advance.")
+    ),
+    BOOKCASE("bookcase",
+            new DictEntry(POS.NOUN, "A piece of furniture with shelves.")
+    ),
+    BOOKBINDER("bookbinder",
+            new DictEntry(POS.NOUN, "A person who fastens the pages of books.")
+    ),
+    CSC220("CSC220",
+            new DictEntry(POS.ADJECTIVE, "Ready to create complex data structures."),
+            new DictEntry(POS.NOUN, "Data Structures."),
+            new DictEntry(POS.VERB, "To create data structures.")
+    );
 
-    private final ArrayListMultimap<PartOfSpeech, String> entries = ArrayListMultimap.create();
-    private String key, value;
-    private PartOfSpeech partOfSpeech;
+    private final String key;
+    private final ArrayListMultimap<POS, String> definitions;
 
-    DictEntry(String key, PartOfSpeech partOfSpeech, String definition) {
+    Words(String key, DictEntry... entries) {
         this.key = key;
-        this.entries.put(partOfSpeech, definition);
+        definitions = ArrayListMultimap.create();
+        for (DictEntry entry : entries) {
+            definitions.put(entry.getPos(), entry.getDefinition());
+        }
     }
 
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public PartOfSpeech getPartOfSpeech() {
-        return partOfSpeech;
-    }
-
-    public void setPartOfSpeech(PartOfSpeech partOfSpeech) {
-        this.partOfSpeech = partOfSpeech;
-    }
 }
