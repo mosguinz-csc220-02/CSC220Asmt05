@@ -2,15 +2,15 @@ package assignment04PartBAndC;
 
 public class DictEntry {
 
-    private final PartOfSpeech pos;
+    private final POS pos;
     private final String definition;
 
-    DictEntry(PartOfSpeech pos, String definition) {
+    DictEntry(POS pos, String definition) {
         this.pos = pos;
         this.definition = definition;
     }
 
-    enum PartOfSpeech {
+    enum POS {
         VERB, NOUN, ADJECTIVE;
     }
 
