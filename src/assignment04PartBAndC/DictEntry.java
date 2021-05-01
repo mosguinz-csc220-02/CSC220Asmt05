@@ -10,6 +10,14 @@ public class DictEntry {
         this.definition = definition;
     }
 
+    public POS getPos() {
+        return pos;
+    }
+
+    public String getDefinition() {
+        return definition;
+    }
+
     enum POS {
         VERB, NOUN, ADJECTIVE;
     }
