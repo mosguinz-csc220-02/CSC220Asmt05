@@ -1,10 +1,13 @@
 package assignment04PartBAndC;
 
+import com.google.common.collect.ImmutableListMultimap;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class DictClient {
 
     private static final Scanner scan = new Scanner(System.in);
+    private static final CSC220Dictionary DICTIONARY = new CSC220Dictionary();
     private final VERSION APP_VERSION;
 
     public DictClient(VERSION version) {
@@ -13,9 +16,39 @@ public class DictClient {
                 + "-----     powered by Google Guava -%n", APP_VERSION);
     }
 
+    public static void main(String[] args) {
+        new DictClient(VERSION.Standard).run();
+    }
+
+    public void run() {
+        String input;
+        while (true) {
+            input = promptInput();
+
+            if (input.equals("!q")) {
+                break;
+            }
+            displayResults(DICTIONARY.lookup(input));
+        }
+    }
+
     private String promptInput() {
         System.out.print("Search: ");
-        return "";
+        return scan.nextLine().trim();
+    }
+
+    private void displayResults(Entry<String, ImmutableListMultimap<POS, String>> res) {
+        System.out.println("|".indent(4));
+        if (res != null) {
+            displayDefinitions(res.getKey(), res.getValue());
+        } else {
+            System.out.println("<Not found>".indent(4));
+        }
+        System.out.println("|".indent(4));
+    }
+
+    private void displayDefinitions(String word, ImmutableListMultimap<POS, String> definition) {
+        definition.forEach((__, def) -> System.out.printf("%s: %s%n".indent(4), word, def));
     }
 
     enum VERSION {
