@@ -31,5 +31,4 @@ public class DictEntry implements Map.Entry<POS, String> {
         throw new UnsupportedOperationException();
     }
 
-
 }
