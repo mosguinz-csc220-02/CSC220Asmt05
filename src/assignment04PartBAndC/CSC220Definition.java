@@ -19,8 +19,8 @@ public enum CSC220Definition {
             new DictEntry(POS.NOUN, "A person who fastens the pages of books.")
     ),
     CSC220("CSC220",
-            new DictEntry(POS.ADJECTIVE, "Ready to create complex data structures."),
             new DictEntry(POS.NOUN, "Data Structures."),
+            new DictEntry(POS.ADJECTIVE, "Ready to create complex data structures."),
             new DictEntry(POS.VERB, "To create data structures.")
     );
 
