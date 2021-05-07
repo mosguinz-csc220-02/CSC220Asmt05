@@ -1,7 +1,7 @@
 package assignment04PartBAndC;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
 public class CSC220Dictionary {
@@ -16,12 +16,8 @@ public class CSC220Dictionary {
         }
     }
 
-    public ImmutableListMultimap<POS, String> lookup(String query) {
-        return entries.get(query);
-    }
-
-    public ImmutableList<String> lookup(String query, POS pos) {
-        return entries.get(query).get(pos);
+    public Entry<String, ImmutableListMultimap<POS, String>> lookup(String query) {
+        return entries.ceilingEntry(query);
     }
 
 }
