@@ -1,7 +1,7 @@
 package assignment04PartBAndC;
 
-import assignment04PartBAndC.DictEntry.POS;
-import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ImmutableListMultimap;
+import java.util.Arrays;
 
 public enum Words {
 
@@ -25,21 +25,20 @@ public enum Words {
     );
 
     private final String key;
-    private final ArrayListMultimap<POS, String> definitions;
+    private final ImmutableListMultimap<POS, String> definitions;
 
     Words(String key, DictEntry... entries) {
         this.key = key;
-        definitions = ArrayListMultimap.create();
-        for (DictEntry entry : entries) {
-            definitions.put(entry.getPos(), entry.getDefinition());
-        }
+        definitions = new ImmutableListMultimap.Builder<POS, String>()
+                .putAll(Arrays.asList(entries))
+                .build();
     }
 
     public String getKey() {
         return key;
     }
 
-    public ArrayListMultimap<POS, String> getDefinitions() {
+    public ImmutableListMultimap<POS, String> getDefinitions() {
         return definitions;
     }
 
