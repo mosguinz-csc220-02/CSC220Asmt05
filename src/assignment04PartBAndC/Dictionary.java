@@ -1,16 +1,15 @@
 package assignment04PartBAndC;
 
-import assignment04PartBAndC.DictEntry.POS;
-import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ImmutableListMultimap;
+import java.util.HashMap;
 
 public class Dictionary {
 
-    ArrayListMultimap<String, ArrayListMultimap<POS, String>> entries;
+    HashMap<String, ImmutableListMultimap<POS, String>> entries = new HashMap<>();
 
-    private void loadEntries() {
+    public Dictionary() {
         for (Words word : Words.values()) {
             entries.put(word.getKey(), word.getDefinitions());
         }
     }
-
 }
