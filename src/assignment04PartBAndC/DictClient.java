@@ -13,15 +13,13 @@ public class DictClient {
                 + "-----     powered by Google Guava -%n", APP_VERSION);
     }
 
-
     private String promptInput() {
         System.out.print("Search: ");
         return "";
     }
 
-
     enum VERSION {
-        STANDARD, PROFESSIONAL
+        Standard, Professional
     }
 
 }
