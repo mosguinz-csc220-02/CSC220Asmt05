@@ -1,6 +1,12 @@
 package assignment04PartBAndC;
 
-public class DictEntry {
+import java.util.Map;
+
+enum POS {
+    VERB, NOUN, ADJECTIVE;
+}
+
+public class DictEntry implements Map.Entry<POS, String> {
 
     private final POS pos;
     private final String definition;
@@ -10,16 +16,21 @@ public class DictEntry {
         this.definition = definition;
     }
 
-    public POS getPos() {
+    @Override
+    public POS getKey() {
         return pos;
     }
 
-    public String getDefinition() {
+
+    @Override
+    public String getValue() {
         return definition;
     }
 
-    enum POS {
-        VERB, NOUN, ADJECTIVE;
+    @Override
+    public String setValue(String value) {
+        throw new UnsupportedOperationException();
     }
+
 
 }
