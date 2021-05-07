@@ -5,17 +5,17 @@ import java.util.Arrays;
 
 public enum CSC220Definition {
 
-    BOOK("book",
+    BOOK("Book",
             new DictEntry(POS.NOUN, "A written work published in printed or electronic form."),
             new DictEntry(POS.VERB, "To arrange for someone to have a seat on a plane.")
     ),
-    BOOKABLE("bookable",
+    BOOKABLE("Bookable",
             new DictEntry(POS.ADJECTIVE, "Can be ordered in advance.")
     ),
-    BOOKCASE("bookcase",
+    BOOKCASE("Bookcase",
             new DictEntry(POS.NOUN, "A piece of furniture with shelves.")
     ),
-    BOOKBINDER("bookbinder",
+    BOOKBINDER("Bookbinder",
             new DictEntry(POS.NOUN, "A person who fastens the pages of books.")
     ),
     CSC220("CSC220",
