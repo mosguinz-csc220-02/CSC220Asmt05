@@ -21,7 +21,6 @@ public class DictEntry implements Map.Entry<POS, String> {
         return pos;
     }
 
-
     @Override
     public String getValue() {
         return definition;
