@@ -13,7 +13,7 @@ public class DictClient {
     public DictClient(VERSION version) {
         APP_VERSION = version;
         System.out.printf("%n- DICTIONARY 220 JAVA %s -----%n"
-                + "-----     powered by Google Guava -%n", APP_VERSION);
+                + "-----      powered by Google Guava -%n%n", APP_VERSION);
     }
 
     public static void main(String[] args) {
@@ -38,17 +38,17 @@ public class DictClient {
     }
 
     private void displayResults(Entry<String, ImmutableListMultimap<POS, String>> res) {
-        System.out.println("|".indent(4));
+        System.out.print("|".indent(4));
         if (res != null) {
             displayDefinitions(res.getKey(), res.getValue());
         } else {
-            System.out.println("<Not found>".indent(4));
+            System.out.print("<Not found>".indent(5));
         }
-        System.out.println("|".indent(4));
+        System.out.print("|".indent(4));
     }
 
     private void displayDefinitions(String word, ImmutableListMultimap<POS, String> definition) {
-        definition.forEach((__, def) -> System.out.printf("%s: %s%n".indent(4), word, def));
+        definition.forEach((__, def) -> System.out.printf("%s: %s".indent(5), word, def));
     }
 
     enum VERSION {
