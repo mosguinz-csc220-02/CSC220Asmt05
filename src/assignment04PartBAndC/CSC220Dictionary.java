@@ -9,8 +9,8 @@ public class CSC220Dictionary {
     HashMap<String, ImmutableListMultimap<POS, String>> entries = new HashMap<>();
 
     public CSC220Dictionary() {
-        for (Words word : Words.values()) {
-            entries.put(word.getKey(), word.getDefinitions());
+        for (CSC220Definition definition : CSC220Definition.values()) {
+            entries.put(definition.getWord(), definition.getDefinitions());
         }
     }
 

@@ -3,7 +3,7 @@ package assignment04PartBAndC;
 import com.google.common.collect.ImmutableListMultimap;
 import java.util.Arrays;
 
-public enum Words {
+public enum CSC220Definition {
 
     BOOK("book",
             new DictEntry(POS.NOUN, "A written work published in printed or electronic form."),
@@ -24,18 +24,18 @@ public enum Words {
             new DictEntry(POS.VERB, "To create data structures.")
     );
 
-    private final String key;
+    private final String word;
     private final ImmutableListMultimap<POS, String> definitions;
 
-    Words(String key, DictEntry... entries) {
-        this.key = key;
+    CSC220Definition(String word, DictEntry... entries) {
+        this.word = word;
         definitions = new ImmutableListMultimap.Builder<POS, String>()
                 .putAll(Arrays.asList(entries))
                 .build();
     }
 
-    public String getKey() {
-        return key;
+    public String getWord() {
+        return word;
     }
 
     public ImmutableListMultimap<POS, String> getDefinitions() {
