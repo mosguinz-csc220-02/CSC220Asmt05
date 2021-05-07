@@ -2,11 +2,13 @@ package assignment04PartBAndC;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class CSC220Dictionary {
 
-    HashMap<String, ImmutableListMultimap<POS, String>> entries = new HashMap<>();
+
+    TreeMap<String, ImmutableListMultimap<POS, String>> entries = new TreeMap<>(
+            String.CASE_INSENSITIVE_ORDER);
 
     public CSC220Dictionary() {
         for (CSC220Definition definition : CSC220Definition.values()) {
