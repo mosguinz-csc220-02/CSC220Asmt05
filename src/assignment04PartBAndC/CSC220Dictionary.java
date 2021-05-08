@@ -24,7 +24,9 @@ public class CSC220Dictionary {
 
     public Entry<String, ImmutableList<String>> lookup(String query, POS pos) {
         Entry<String, ImmutableListMultimap<POS, String>> def = lookup(query);
-        return def == null ? null : Maps.immutableEntry(def.getKey(), def.getValue().get(pos));
+        ImmutableList<String> v = def.getValue().get(pos);
+        return (def == null || v.size() == 0) ? null
+                : Maps.immutableEntry(def.getKey(), def.getValue().get(pos));
     }
 
 }
