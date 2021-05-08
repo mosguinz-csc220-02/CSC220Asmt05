@@ -5,7 +5,7 @@ import java.util.Map;
 enum POS {
     VERB, NOUN, ADJECTIVE;
 
-    public POS get(String s) {
+    public static POS get(String s) {
         try {
             return POS.valueOf(s.toUpperCase());
         } catch (IllegalArgumentException ignored) {
