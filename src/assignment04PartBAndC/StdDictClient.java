@@ -9,12 +9,10 @@ public class StdDictClient {
     public static final CSC220Dictionary DICTIONARY = new CSC220Dictionary();
     private static final Scanner scan = new Scanner(System.in);
 
-    public StdDictClient() {
-        System.out.printf("%n- DICTIONARY 220 JAVA %s -----%n"
-                + "-----      powered by Google Guava -%n%n", "Standard");
-    }
-
     public static void main(String[] args) {
+        System.out.printf("%n- DICTIONARY 220 JAVA Standard -----%n"
+                + "-----      powered by Google Guava -%n%n");
+        new StdDictClient().run();
     }
 
     public void run() {
