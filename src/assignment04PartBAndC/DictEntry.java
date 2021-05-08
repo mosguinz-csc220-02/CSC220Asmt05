@@ -4,6 +4,14 @@ import java.util.Map;
 
 enum POS {
     VERB, NOUN, ADJECTIVE;
+
+    public POS get(String s) {
+        try {
+            return POS.valueOf(s.toUpperCase());
+        } catch (IllegalArgumentException ignored) {
+            return null;
+        }
+    }
 }
 
 public class DictEntry implements Map.Entry<POS, String> {
