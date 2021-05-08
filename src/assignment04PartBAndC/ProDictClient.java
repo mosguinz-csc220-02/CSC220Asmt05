@@ -21,7 +21,8 @@ public class ProDictClient {
         while (true) {
             String input = promptInput();
 
-            if (input.equals("!q")) {
+            if (input.equalsIgnoreCase("!q")) {
+                System.out.println("\n-----THANK YOU-----");
                 break;
             }
 
