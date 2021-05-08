@@ -17,7 +17,7 @@ public class CSC220Dictionary {
     }
 
     public Entry<String, ImmutableListMultimap<POS, String>> lookup(String query) {
-        return entries.ceilingEntry(query);
+        return entries.subMap(query, true, query, true).firstEntry();
     }
 
 }
