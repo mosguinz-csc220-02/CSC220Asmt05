@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class StdDictClient {
 
-    public static final CSC220Dictionary DICTIONARY = new CSC220Dictionary();
+    private static final CSC220Dictionary DICTIONARY = new CSC220Dictionary();
     private static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
