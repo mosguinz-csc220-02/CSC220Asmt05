@@ -12,6 +12,11 @@ enum POS {
             return null;
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString().toLowerCase();
+    }
 }
 
 public class DictEntry implements Map.Entry<POS, String> {
